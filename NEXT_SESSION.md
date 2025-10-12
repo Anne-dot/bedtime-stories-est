@@ -8,12 +8,12 @@
 Jätka bedtime-stories (ohtujutt-vikerraadio) projektiga.
 
 Loe läbi konteksti taastamiseks:
-1. progress_updates/2025-10-13_bedtime-stories.md (täna tehtud töö)
+1. progress_updates/2025-10-13_bedtime-stories.md (kogu päeva töö + allalaadimise seisund)
 2. README.md (projekti ülevaade)
-3. COMPACTING_GUIDELINES.md (töövoo põhimõtted)
+3. TODO.md (järgmised sammud)
+4. COMPACTING_GUIDELINES.md (töövoo põhimõtted)
 
-Järgmine ülesanne: failide reorganiseerimine professionaalseks struktuuriks.
-Vaata TODO.md TODO.md failist täpsed sammud.
+Järgmine ülesanne: failide reorganiseerimine + seeriate organiseerimine.
 ```
 
 ### 2. Või lühidalt:
@@ -27,33 +27,46 @@ Loe progress_updates/2025-10-13_bedtime-stories.md ja jätka TODO.md ülesannete
 ## Mis on praegu VALMIS
 
 ✅ Projekt GitHub'is: https://github.com/Anne-dot/bedtime-stories-est
-✅ 4 commiti tehtud
+✅ 5 commiti tehtud
 ✅ Kõik peamised funktsioonid töötavad:
    - Manifest download (19x kiirem)
-   - Quality control
+   - Quality control (kestuse kontroll)
    - 3x retry loogika
-   - Progress tracking
-   - Võrguühenduse kaitse
-   - Automaatne temp cleanup
-   - Graceful shutdown
+   - Progress tracking (ETA, statistics)
+   - Võrguühenduse kaitse (5 consecutive failures → stop)
+   - Automaatne temp cleanup (pärast iga lugu)
+   - Graceful shutdown (Ctrl+C)
 
-✅ 2158 lugu valmis allalaadimiseks
-✅ Eeldatav aeg: ~20h päeval, ~16h öösel
+✅ **Allalaadimine POOLELI:**
+   - Alustatud: 2025-10-13 õhtul
+   - Tempo: ~100 lugu/tunnis (~33s/lugu)
+   - Target: 1981 lugu
+   - ETA: 2025-10-14 õhtul ~15:00-16:00
+   - Quality control töötab: püüab kinni valed failid ja proovib uuesti
 
 ---
 
-## Järgmised sammud (12 sammu)
+## Järgmised sammud (pärast allalaadimist)
 
 Vaata täpsed sammud: `TODO.md` failis projekti kaustas.
 
-**Lühidalt:**
-1. Cleanup temp failid
-2. Loo `scripts/` ja `scripts/utils/` struktuur
-3. Liiguta failid õigetesse kaustadesse
-4. Paranda impordid
-5. Testi
-6. Uuenda dokumentatsioon
-7. Commit ja push
+**Põhisammud:**
+1. **Failide reorganiseerimine:**
+   - Loo `scripts/` ja `scripts/utils/` struktuur
+   - Liiguta failid õigetesse kaustadesse
+   - Paranda impordid
+   - Testi
+   - Loo `docs/` kaust dokumentatsioonile
+
+2. **Seeriate organiseerimine (UUS):**
+   - Loo `organize_series.py` skript
+   - Leia lood, mis lõpevad `, number` (nt "Sirli, Siim ja saladused, 1")
+   - Liiguta seerialood oma kaustadesse (nt `Õhtujutt/Sirli, Siim ja saladused/`)
+   - Üksikud lood jäävad `Õhtujutt/` juurkausta
+
+3. **Dokumentatsioon ja Git:**
+   - Uuenda README.md
+   - Commit ja push
 
 ---
 
@@ -80,6 +93,7 @@ git status         # Vaata muudatusi
 2. Add automatic temp file cleanup
 3. Update README
 4. Add progress tracking
+5. [pending after download completes]
 
 ---
 
@@ -89,15 +103,35 @@ git status         # Vaata muudatusi
 # Vaata projekti struktuuri
 tree -L 2 -I '__pycache__|*.mp3'
 
-# Kontrolli, mis on saved=0
+# Kontrolli mitu lugu on allalaaditud
+grep ",1,original" ohtujutt_catalog.csv | wc -l
+
+# Kontrolli mitu on veel allalaadimata
 grep ",0,original" ohtujutt_catalog.csv | wc -l
 
-# Testi allalaadimist (1 lugu)
-python3 download_stories.py
-# Sisesta: 1
+# Kontrolli allalaadimise progressi
+ls -1 Õhtujutt/*.mp3 | wc -l
 ```
 
 ---
 
+## Hetkeseisund
+
+**Allalaadimine käib:**
+- Skript töötab terminal aknas
+- Ubuntu screen lock EI mõjuta (terminal process jätkab)
+- Arvuti peab olema sees (mitte suspend/sleep)
+- Tempo: ~100 lugu/tunnis
+- ETA: homme õhtu ~15:00-16:00
+
+**Pärast allalaadimist:**
+1. Failide reorganiseerimine
+2. Seeriate organiseerimine (numbriga lood kaustadesse)
+3. Git commit ja push
+4. Projekt VALMIS!
+
+---
+
 **Loodud:** 2025-10-13
-**Projekti staatus:** Valmis tootmiseks, failide reorganiseerimine järgmisena
+**Viimati uuendatud:** 2025-10-13 23:00
+**Projekti staatus:** Allalaadimine pooleli, reorganiseerimine järgmisena

@@ -101,7 +101,60 @@
 - [ ] Automaatne uute lugude tuvastamine (cron job)
 - [ ] Metaandmete lisamine MP3 failidele (ID3 tags)
 
-## Järgmised sammud
+## Järgmised sammud (PÄRAST ALLALAADIMIST)
+
+### 1. Failide reorganiseerimine
+- [ ] **Loo professionaalne kaustade struktuur**
+  - `scripts/` - peamised skriptid
+  - `scripts/utils/` - utility moodulid
+  - `docs/` - dokumentatsioon
+  - Prioriteet: KÕRGE
+
+- [ ] **Liiguta failid õigetesse kohtadesse**
+  - `scripts/download_stories.py`
+  - `scripts/record_stories.py`
+  - `scripts/cleanup_temp_files.py`
+  - `scripts/trim_silence.py`
+  - `scripts/utils/csv_manager.py`
+  - `scripts/utils/manifest_downloader.py`
+  - Lisa `__init__.py` failid
+
+- [ ] **Paranda impordid**
+  - `from utils.csv_manager import CSVManager`
+  - `from utils.manifest_downloader import ...`
+  - Testi, et kõik töötab
+
+- [ ] **Liiguta dokumentatsioon**
+  - `docs/TODO.md`
+  - `docs/USAGE.md`
+  - `docs/COMPACTING_GUIDELINES.md`
+  - `docs/MANIFEST_DOWNLOAD_ANALYSIS.md`
+
+### 2. Seeriate organiseerimine (UUS!)
+- [ ] **Loo organize_series.py skript**
+  - Leia CSV-st lood, mis lõpevad `, \d+` (nt "Sirli, Siim ja saladused, 1")
+  - Erasta sarja nimi (osa enne viimast koma)
+  - Loo kaust `Õhtujutt/[sarja_nimi]/`
+  - Liiguta kõik sarja osad õigesse kausta
+  - Üksikud lood jäävad `Õhtujutt/` juurkausta
+  - Prioriteet: KÕRGE
+
+- [ ] **Testi mõnel lugudel**
+  - Kontrolli, et failid liiguvad õigesti
+  - Kontrolli, et üksikud lood jäävad paika
+
+- [ ] **Jookse läbi kõikidel lugudel**
+  - `python3 organize_series.py`
+
+### 3. Dokumentatsioon ja Git
+- [ ] **Uuenda README.md**
+  - Uus failide struktuur
+  - Seeriate organiseerimise kirjeldus
+  - Kasutamisjuhendid
+
+- [ ] **Git commit ja push**
+  - Commit: "Reorganize project structure and add series organization"
+  - Push to GitHub
 
 ### record_stories.py refaktoreerimine
 - [x] Kasuta CSV-st täpseid kestusi (`duration_seconds`)
