@@ -1,26 +1,27 @@
-# Järgmiseks Sessiooniks
+# 🚀 Järgmiseks Sessiooniks - START HERE
+
+**Projekti nimi:** Vikerraadio Õhtujuttude Automatiseerimine
+**GitHub:** https://github.com/Anne-dot/bedtime-stories-est
+
+---
 
 ## Kuidas alustada uut sessiooni kontekstiga
 
 ### 1. Anna Claude'ile see käsk:
 
 ```
-Jätka bedtime-stories (ohtujutt-vikerraadio) projektiga.
-
-Loe läbi konteksti taastamiseks:
-1. progress_updates/2025-10-13_bedtime-stories.md (kogu päeva töö + allalaadimise seisund)
-2. README.md (projekti ülevaade)
-3. TODO.md (järgmised sammud)
-4. COMPACTING_GUIDELINES.md (töövoo põhimõtted)
-
-Järgmine ülesanne: failide reorganiseerimine + seeriate organiseerimine.
+Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
 ```
 
-### 2. Või lühidalt:
+### 2. Claude loeb automaatselt läbi:
 
-```
-Loe progress_updates/2025-10-13_bedtime-stories.md ja jätka TODO.md ülesannetega.
-```
+**Loe nende linkide järjekorras:**
+1. 📅 [progress_updates/2025-10-13_bedtime-stories.md](./progress_updates/2025-10-13_bedtime-stories.md) - Viimane päev tööd
+2. ✅ [TODO.md](./TODO.md) - Järgmised sammud detailselt
+3. 📖 [README.md](./README.md) - Projekti ülevaade ja kasutamisjuhend
+4. 🎯 [COMPACTING_GUIDELINES.md](./COMPACTING_GUIDELINES.md) - Töövoo põhimõtted
+
+**Järgmine ülesanne:** Failide reorganiseerimine + seeriate organiseerimine
 
 ---
 
