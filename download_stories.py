@@ -28,6 +28,28 @@ def signal_handler(sig, frame):
     shutdown_requested = True
 
 
+def cleanup_temp_files(output_folder):
+    """Remove temporary files created by yt-dlp after successful download"""
+    import glob
+
+    patterns = [
+        os.path.join(output_folder, "*.temp.mp3"),
+        os.path.join(output_folder, "*.part"),
+        os.path.join(output_folder, "*.ytdl"),
+    ]
+
+    removed_count = 0
+    for pattern in patterns:
+        for temp_file in glob.glob(pattern):
+            try:
+                os.remove(temp_file)
+                removed_count += 1
+            except Exception:
+                pass  # Ignore errors
+
+    return removed_count
+
+
 def main():
     """Main function to download stories"""
     global shutdown_requested
@@ -145,6 +167,12 @@ def main():
                         downloaded_count += 1
                         total_duration += int(story['duration_seconds'])
                         consecutive_failures = 0  # Reset on success
+
+                        # Step 4: Cleanup temp files
+                        removed = cleanup_temp_files(OUTPUT_FOLDER)
+                        if removed > 0:
+                            print(f"  ✓ Cleaned up {removed} temp file(s)")
+
                         print(f"  ✓ Downloaded successfully")
                         download_success = True
                         break  # Success - exit retry loop
