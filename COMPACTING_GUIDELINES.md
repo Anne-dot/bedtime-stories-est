@@ -1,5 +1,20 @@
 # Compacting Guidelines - Kuidas meiega töötada
 
+## 🚀 UUE SESSIOONI ALUSTAMISEKS
+
+**ALUSTA ALATI SIIT:**
+👉 **Loe [NEXT_SESSION.md](./NEXT_SESSION.md) faili**
+
+NEXT_SESSION.md sisaldab:
+- Hetkeseisund (mis on valmis)
+- Linke kõigile olulistele failidele (progress updates, TODO, README)
+- Järgmised sammud
+- Kiire konteksti taastamine
+
+**Pärast NEXT_SESSION.md lugemist jätka nende juhistega allpool.**
+
+---
+
 ## Töökäik uue koodi kirjutamisel
 
 ### 1. BIG PICTURE ENNE DETAILE
@@ -127,35 +142,19 @@
    - Panen TODO.md kirja
    - Jätkame
 
-## Failid, mida lugeda enne töö jätkamist
+## 📚 Failid, mida lugeda enne töö jätkamist
 
-1. **README.md** - projekt ülevaade, koodipõhimõtted, arhitektuur
-2. **TODO.md** - mis on tehtud, mis tuleb teha
-3. **record_stories.py** - praegune kood (CSVManager valmis)
+**ALATI alusta [NEXT_SESSION.md](./NEXT_SESSION.md) failist!**
 
-## Olemasolev kood (seisuga compact)
+NEXT_SESSION.md juhendab sind lugema:
+1. **progress_updates/** - viimane progress update (vt kuupäeva)
+2. **TODO.md** - järgmised sammud detailselt
+3. **README.md** - projekti ülevaade ja dokumentatsioon
+4. **COMPACTING_GUIDELINES.md** (see fail) - töövoo põhimõtted
 
-- ✅ **CSVManager klass** - täielikult valmis
-  - `__init__()` - init ja load
-  - `load()` - laeb CSV mällu
-  - `_read_csv_file()` - helper
-  - `find_next_original_unsaved()` - leiab järgmise loo
-  - `_is_ready_to_record()` - kontrollib tingimusi
-  - `mark_as_saved()` - märgib salvestatuks (kontrollib faili)
-  - `save()` - salvestab CSV backupiga
-  - `_create_backup()` - helper
-  - `_write_csv_file()` - helper
+## Uue sessiooni alustamine
 
-- ⏳ **BrowserController klass** - järgmine (pole alustatud)
-- ⏳ **AudioRecorder klass** - veel tegemata
-- ⏳ **main() funktsioon** - veel tegemata
-
-## Kompaktimise järel
-
-Kui compacting on tehtud:
-1. Loe README.md
-2. Loe TODO.md
-3. Loe see fail (COMPACTING_GUIDELINES.md)
-4. Vaata record_stories.py (mis on juba valmis)
-5. Küsi kasutajalt: "Kas jätkame BrowserController klassiga?"
-6. Järgi täpselt neid guideline'e!
+1. ✅ Loe [NEXT_SESSION.md](./NEXT_SESSION.md)
+2. ✅ Järgi linkide järjekorda NEXT_SESSION.md failis
+3. ✅ Tule tagasi siia ja järgi allpool olevaid töövoo põhimõtteid
+4. ✅ Küsi kasutajalt kinnitust enne alustamist
