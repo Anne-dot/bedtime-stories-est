@@ -72,6 +72,7 @@ python3 record_stories.py
 - Quality control: kontrollib faili kestust (mutagen)
 - Progress tracking: ETA, kiirus, statistika
 - **Võrguühenduse kaitse:** peatub automaatselt 5 järjestikuse ebaõnnestumise järel
+- **Automaatne cleanup:** kustutab yt-dlp ajutised failid (.temp.mp3, .part, .ytdl) pärast edukat allalaadimist
 
 **Kasutamine:**
 ```bash
@@ -96,6 +97,7 @@ python3 download_stories.py
 - ✅ Reaalajas progress tracking
 - ✅ Ei vaja audio monitoring
 - ✅ Võrguühenduse kaitse (peatub automaatselt kui võrk kadunud)
+- ✅ Automaatne temp failide cleanup (ei jäta prügi maha)
 - ❌ Vajab internetiühendust (ERR.ee server)
 
 **Märkused:**
@@ -180,27 +182,31 @@ python3 trim_silence.py
 
 ```
 ohtujutt-vikerraadio/
-├── collect_story_info.py          # Katalogiseerimine
+├── .gitignore                      # Git ignore (MP3, backups, temp failid)
+├── README.md                       # See fail
+├── TODO.md                         # Tehtavad ülesanded
+├── USAGE.md                        # Kasutamise juhend
+├── COMPACTING_GUIDELINES.md        # Koodipõhimõtted
+├── MANIFEST_DOWNLOAD_ANALYSIS.md   # Manifest meetodi dokumentatsioon
 ├── download_stories.py             # DASH manifest allalaadimine (SOOVITATAV)
 ├── record_stories.py               # Monitor recording (alternatiiv)
-├── trim_silence.py                 # Vaikuse eemaldamine
 ├── csv_manager.py                  # CSV moodul (reusable)
 ├── manifest_downloader.py          # Manifest download funktsioonid
-├── ohtujutt_catalog.csv            # Lugude kataloog
-├── ohtujutt_catalog.csv.backup     # Automaatne backup
-├── duration_mismatch.txt           # Quality control log
-├── MANIFEST_DOWNLOAD_ANALYSIS.md   # Manifest meetodi dokumentatsioon
-├── TODO.md                         # Tehtavad ülesanded
-├── COMPACTING_GUIDELINES.md        # Koodipõhimõtted
-├── Õhtujutt/                       # Allalaaditud/lindistatud MP3-d
-│   ├── Õhtujutt lastele. Kiisula loss.mp3
-│   ├── Õhtujutt lastele. Tondilossi õunapuu.mp3
-│   └── ...
-├── vikerraadio-source-data/        # Test skriptid
+├── cleanup_temp_files.py           # Temp failide kustutamine (manual)
+├── trim_silence.py                 # Vaikuse eemaldamine
+├── ohtujutt_catalog.csv            # Lugude kataloog (3501 lugu)
+├── deprecated/                     # Vanad/kasutamata skriptid
+│   ├── find_duplicates.py
+│   ├── fix_duplicate_status.py
+│   ├── mark_duplicates.py
+│   └── sync_saved_status.py
+├── vikerraadio-source-data/        # Test skriptid ja andmed
 │   ├── test_manifest_download.py
 │   ├── test_three_stories.py
-│   └── test_downloads/
-└── README.md                       # See fail
+│   └── ...
+└── Õhtujutt/                       # Allalaaditud/lindistatud MP3-d (gitignore)
+    ├── Õhtujutt lastele. Kiisula loss.mp3
+    └── ...
 ```
 
 ---
