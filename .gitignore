@@ -1,0 +1,41 @@
+# Audio files (too large for git)
+*.mp3
+*.temp.mp3
+Õhtujutt/
+Õhtujutt_originaalid/
+
+# CSV backups
+*.csv.backup
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.txt.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Test files
+test_*.mp3
+vikerraadio-source-data/test_downloads/
+
+# Deprecated/temp text files (keep catalog)
+duplicates.txt
+stories_without_duration.txt
