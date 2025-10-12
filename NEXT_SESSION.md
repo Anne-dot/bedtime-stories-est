@@ -49,25 +49,12 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
 
 ## Järgmised sammud (pärast allalaadimist)
 
-Vaata täpsed sammud: `TODO.md` failis projekti kaustas.
+**Vaata detailsed sammud:** 👉 [TODO.md](./TODO.md)
 
-**Põhisammud:**
-1. **Failide reorganiseerimine:**
-   - Loo `scripts/` ja `scripts/utils/` struktuur
-   - Liiguta failid õigetesse kaustadesse
-   - Paranda impordid
-   - Testi
-   - Loo `docs/` kaust dokumentatsioonile
-
-2. **Seeriate organiseerimine (UUS):**
-   - Loo `organize_series.py` skript
-   - Leia lood, mis lõpevad `, number` (nt "Sirli, Siim ja saladused, 1")
-   - Liiguta seerialood oma kaustadesse (nt `Õhtujutt/Sirli, Siim ja saladused/`)
-   - Üksikud lood jäävad `Õhtujutt/` juurkausta
-
-3. **Dokumentatsioon ja Git:**
-   - Uuenda README.md
-   - Commit ja push
+**Lühiülevaade:**
+1. Failide reorganiseerimine (`scripts/`, `scripts/utils/`, `docs/`)
+2. Seeriate organiseerimine (numbriga lood kaustadesse)
+3. Dokumentatsioon ja Git commit/push
 
 ---
 

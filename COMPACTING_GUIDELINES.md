@@ -146,11 +146,11 @@ NEXT_SESSION.md sisaldab:
 
 **ALATI alusta [NEXT_SESSION.md](./NEXT_SESSION.md) failist!**
 
-NEXT_SESSION.md juhendab sind lugema:
-1. **progress_updates/** - viimane progress update (vt kuupäeva)
-2. **TODO.md** - järgmised sammud detailselt
-3. **README.md** - projekti ülevaade ja dokumentatsioon
-4. **COMPACTING_GUIDELINES.md** (see fail) - töövoo põhimõtted
+NEXT_SESSION.md juhendab sind lugema järgmised failid:
+1. 📅 [progress_updates/](./progress_updates/) - Viimane progress update (vt kuupäeva)
+2. ✅ [TODO.md](./TODO.md) - Järgmised sammud detailselt
+3. 📖 [README.md](./README.md) - Projekti ülevaade ja dokumentatsioon
+4. 🎯 [COMPACTING_GUIDELINES.md](./COMPACTING_GUIDELINES.md) (see fail) - Töövoo põhimõtted
 
 ## Uue sessiooni alustamine
 
