@@ -16,6 +16,7 @@ OUTPUT_FOLDER = "Õhtujutt"
 AUDIO_FORMAT = "mp3"
 CSV_PATH = "ohtujutt_catalog.csv"
 MAX_CONSECUTIVE_FAILURES = 5  # Stop if this many stories fail in a row (likely network issue)
+MAX_RETRY_ATTEMPTS = 5  # Number of retry attempts with exponential backoff
 
 # Global flag for graceful shutdown
 shutdown_requested = False
@@ -26,6 +27,111 @@ def signal_handler(sig, frame):
     global shutdown_requested
     print("\n\n⚠ Shutdown requested. Finishing current story...")
     shutdown_requested = True
+
+
+def wait_with_backoff(attempt):
+    """
+    Wait with exponential backoff before retry
+    Shows countdown and allows Ctrl+C interruption
+
+    Returns True if wait completed, False if interrupted
+    """
+    global shutdown_requested
+
+    # Calculate wait time: 30, 60, 120, 240, 480 seconds
+    wait_seconds = 30 * (2 ** attempt)
+
+    print(f"\n⏳ Network issue detected. Waiting {wait_seconds}s before retry {attempt + 1}/5...")
+    print(f"⏳ Press Ctrl+C to stop")
+
+    # Countdown with 1s intervals
+    for remaining in range(wait_seconds, 0, -1):
+        if shutdown_requested:
+            print(f"\n⚠ Wait interrupted by user")
+            return False
+
+        # Show progress every 10s or last 5s
+        if remaining % 10 == 0 or remaining <= 5:
+            print(f"⏳ {remaining}s remaining...", end='\r')
+
+        time.sleep(1)
+
+    print(f"✓ Wait complete, resuming downloads...")
+    return True
+
+
+def try_download_story(story, csv_manager):
+    """
+    Try to download a single story with 3x retry logic
+
+    Returns dict with result:
+    - success: True if downloaded successfully
+    - failed_verification: True if verification failed
+    - duration: story duration in seconds (0 if not successful)
+    - error_type: error type if failed (manifest_not_found, download_failed, verification_failed)
+    """
+    file_path = os.path.join(OUTPUT_FOLDER, f"{story['title']}.{AUDIO_FORMAT}")
+    last_error_type = "unknown"
+
+    # Retry up to 3 times
+    for attempt in range(3):
+        if attempt > 0:
+            print(f"  ⚠ Retry attempt {attempt}/2...")
+            # Remove previous broken file
+            if os.path.exists(file_path):
+                os.remove(file_path)
+
+        # Step 1: Extract manifest URL
+        manifest_url = extract_manifest_url(story['url'])
+
+        if not manifest_url:
+            print("  ✗ Could not extract manifest URL")
+            last_error_type = "manifest_not_found"
+            continue  # Try again
+
+        # Step 2: Download with yt-dlp
+        success = download_with_ytdlp(manifest_url, file_path)
+
+        if not success:
+            print("  ✗ Download failed")
+            last_error_type = "download_failed"
+            continue  # Try again
+
+        # Step 3: Verify (quality control)
+        if csv_manager.mark_as_saved(story['url']):
+            # Step 4: Cleanup temp files
+            removed = cleanup_temp_files(OUTPUT_FOLDER)
+            if removed > 0:
+                print(f"  ✓ Cleaned up {removed} temp file(s)")
+
+            print(f"  ✓ Downloaded successfully")
+            return {
+                "success": True,
+                "failed_verification": False,
+                "duration": int(story['duration_seconds']),
+                "error_type": None
+            }
+        else:
+            print(f"  ✗ File verification failed")
+            # Remove broken file for retry
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            # This was a verification failure - don't retry
+            return {
+                "success": False,
+                "failed_verification": True,
+                "duration": 0,
+                "error_type": "verification_failed"
+            }
+
+    # If all retries failed
+    print(f"  ✗ Failed after 3 attempts, skipping")
+    return {
+        "success": False,
+        "failed_verification": False,
+        "duration": 0,
+        "error_type": last_error_type
+    }
 
 
 def cleanup_temp_files(output_folder):
@@ -139,6 +245,7 @@ def main():
             try:
                 file_path = os.path.join(OUTPUT_FOLDER, f"{story['title']}.{AUDIO_FORMAT}")
                 download_success = False
+                last_error_type = "unknown"
 
                 # Retry up to 3 times
                 for attempt in range(3):
@@ -153,6 +260,7 @@ def main():
 
                     if not manifest_url:
                         print("  ✗ Could not extract manifest URL")
+                        last_error_type = "manifest_not_found"
                         continue  # Try again
 
                     # Step 2: Download with yt-dlp
@@ -160,6 +268,7 @@ def main():
 
                     if not success:
                         print("  ✗ Download failed")
+                        last_error_type = "download_failed"
                         continue  # Try again
 
                     # Step 3: Verify (quality control)
@@ -178,6 +287,7 @@ def main():
                         break  # Success - exit retry loop
                     else:
                         failed_count += 1
+                        last_error_type = "verification_failed"
                         print(f"  ✗ File verification failed")
                         # Remove broken file for retry
                         if os.path.exists(file_path):
@@ -187,6 +297,7 @@ def main():
                 # If all retries failed
                 if not download_success:
                     print(f"  ✗ Failed after 3 attempts, skipping")
+                    csv_manager.mark_as_failed(story['url'], last_error_type)
                     skipped_count += 1
                     consecutive_failures += 1
 

@@ -158,4 +158,75 @@
 
 ---
 
-**Järgmine sessioon:** 2025-10-14 õhtul - Failide reorganiseerimine + seeriate organiseerimine
+# Progress Update: 2025-10-13 (Evening Session #2)
+
+## Error Tracking & Session Management
+
+**Kuupäev:** 2025-10-13, õhtu
+**Ajakulu:** ~2h
+
+### 🎯 Probleem
+- Download failib 502 gateway error
+- Skript jääb samale loole kinni (proovib lõputult)
+- 1211 lugu alla laaditud, siis ERR vod.err.ee server hakkas 502 tagastama
+
+### ✅ Lahendus: Error Tracking
+
+#### 1. CSV Status Field Muudetud
+- **Enne:** `saved` = `0` või `1`
+- **Pärast:** `saved` = `0`, `1`, `failed_*`
+  - `failed_download_failed` - yt-dlp download error
+  - `failed_manifest_not_found` - Manifest URL ei leitud
+  - `failed_verification_failed` - Duration check fail
+
+#### 2. Session Skip Logic
+- **Probleem:** Failed lood proovitakse kohe uuesti → lõputu tsükkel
+- **Lahendus:**
+  - `csv_manager.failed_this_session` set
+  - Failed lood skip'itakse praeguse sessiooni jooksul
+  - Järgmine käivitus proovib uuesti (retry tulevikus)
+
+#### 3. Koodimuudatused
+**Failid:**
+- `csv_manager.py`:
+  - Lisa `failed_this_session` set
+  - `mark_as_failed(url, error_type)` meetod
+  - `_is_ready_to_record()` kontrollib session skip
+- `download_stories.py`:
+  - `last_error_type` tracking
+  - `mark_as_failed()` kutsumine
+- `README.md`:
+  - CSV struktuuri dokumentatsioon
+  - Error tracking selgitus
+
+### 📊 Tulemus
+✅ Error tracking toimib
+✅ Session skip loogika valmis
+✅ Dokumentatsioon uuendatud
+✅ **TESTITUD JA TÖÖTAB!**
+
+### ✅ Test Tulemused
+**Testimine:** 2025-10-13, õhtu
+
+1. **Session skip töötab:**
+   - Lugu #1 failib → skip
+   - Lugu #2 on ERI LUGU (mitte sama lõputult) ✓
+
+2. **Server taastus:**
+   - Esimesed 2 lugu: 502 gateway error
+   - Alates lugu #4: ✓ töötab normaalselt
+
+3. **Statistika (11 lugu):**
+   - 7 downloaded ✓
+   - 2 skipped (502 errors)
+   - 1 failed (duration mismatch)
+   - ETA: ~9h
+
+4. **Järeldus:**
+   - ✅ Error tracking valmis ja töötab
+   - ✅ Session skip lahendas lõputu tsükli
+   - ✅ Allalaadimine jätkub normaalselt
+
+---
+
+**Järgmine sessioon:** Failide reorganiseerimine + seeriate organiseerimine

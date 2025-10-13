@@ -17,6 +17,7 @@ class CSVManager:
         self.output_folder = output_folder
         self.audio_format = audio_format
         self.stories = {}  # Dict: {url: story_row_dict}
+        self.failed_this_session = set()  # Track failed URLs this session (skip for rest of session)
         self.load()  # Load CSV immediately
 
     def load(self):
@@ -59,8 +60,14 @@ class CSVManager:
         if not story.get('duration_seconds', '').strip():
             return False
 
-        # Must be unsaved
-        if story.get('saved') != '0':
+        # Skip if failed this session (allow retry next session)
+        if story.get('url') in self.failed_this_session:
+            return False
+
+        # Must not be successfully downloaded
+        # Allow: '0' (not downloaded) or 'failed_*' (can retry next session)
+        saved = story.get('saved', '0')
+        if saved == '1':
             return False
 
         # Must be original (not duplicate)
@@ -68,6 +75,12 @@ class CSVManager:
             return False
 
         return True
+
+    def mark_as_failed(self, story_url, error_type):
+        """Mark story as failed with error type and add to session skip list"""
+        if story_url in self.stories:
+            self.stories[story_url]['saved'] = f'failed_{error_type}'
+            self.failed_this_session.add(story_url)  # Skip for rest of this session
 
     def mark_as_saved(self, story_url):
         """Mark story as saved (only if file actually exists and duration is correct)"""

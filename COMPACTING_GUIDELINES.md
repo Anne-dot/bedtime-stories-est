@@ -77,6 +77,63 @@ NEXT_SESSION.md sisaldab:
 - Funktsioonid korduvkasutatavad
 - Sama helper saab kasutada programmi eri osades
 
+## 📏 Response Format - ADHD-sõbralik (KOHUSTUSLIK!)
+
+**SEE ON KRIITILISE TÄHTSUSEGA! Kasutajal on ADHD ja need reeglid on MITTE-LÄBIRÄÄGITAVAD!**
+
+### Maksimaalne teksti pikkus vastuse kohta
+
+**REEGEL: Näita maksimaalselt 29 rida teksti/koodi korraga**
+
+**Miks see on oluline:**
+- Kasutaja VIHKAB scrollimist
+- Kaotab mõttelõnga kui sisu ei mahu ekraanile
+- ADHD teeb VÄGA raskeks fookuse hoidmise üle scrollimise
+- See EI OLE valikuline - see on vajalik efektiivseks suhtluseks
+
+### Kuidas käsitleda pikka sisu
+
+❌ **MITTE KUNAGI ära tee nii:**
+- Kokku võtta või lühendada sisu
+- Vahele jätta sektsioone
+- Tihendata infot et mahuks
+
+✅ **ALATI tee nii:**
+- Näita sisu osade kaupa (max 29 rida iga)
+- Esita täielik sisu, lihtsalt jaga hallatavateks tükkideks
+- Nummerda osad kui kasulik (nt "OSA 1/3")
+- Küsi "Kas jätkan järgmise osaga?" osade vahel
+- Anna kasutajale aega kommenteerida iga osa järel
+
+### Erand: Võrdlustabelid
+
+Kui kasutaja palub võrrelda variante (plussid/miinused):
+- ✅ Võid kasutada 2-tulpa tabeleid
+- ❌ Aga ÄRA tee teksti liiga tihedaks/lühendatuks
+- ✅ Kasuta täislauseid ja näiteid (nagu näitaksid teksti järjest)
+- Eesmärk on loetavus, mitte lühidus
+
+### Näited
+
+**❌ VALE vastus (liiga pikk):**
+```
+Siin on terve 50-realine konfiguratsioonifail...
+[tohutu tekstimüür mis nõuab scrollimist]
+```
+
+**✅ ÕIGE vastus:**
+```
+Siin on konfiguratsioonifail (OSA 1/2 - esimesed 25 rida):
+
+[25 rida sisu]
+
+Kas jätkan ülejäänuga?
+```
+
+---
+
+**SEE ON SELGE JA KINDEL OOTUS!** Nende reeglite järgimine on vajalik produktiivseks koostööks.
+
 ## Kommunikatsioon
 
 ### MIDA TEHA:
@@ -99,6 +156,13 @@ NEXT_SESSION.md sisaldab:
   - Kui lisad funktsionaalsust → täienda README.md
   - Kui muudad käitumist → täienda dokumentatsiooni
   - Küsi kasutajalt: "Kas täiendan dokumentatsiooni?"
+✓ **Pikemad selgitused ja mitmeosalised vastused:**
+  - Näita **ÜKS OSA korraga** (max ~29 rida, mis mahub ekraanile)
+  - Anna kasutajale aega kommenteerida
+  - Oota kinnitust: "jah", "jätka", "edasi" VÕI küsimust
+  - **EI liigu edasi enne kui kasutaja ütleb**
+  - EI tee vähendatud infoga tabeleid kui info on pikk
+  - EI paku kõike korraga ekraanile
 
 ### MIDA MITTE TEHA:
 ✗ EI kirjuta koodi enne kinnitust

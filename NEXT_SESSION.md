@@ -16,12 +16,12 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
 ### 2. Claude loeb automaatselt läbi:
 
 **Loe nende linkide järjekorras:**
-1. 📅 [progress_updates/2025-10-13_bedtime-stories.md](./progress_updates/2025-10-13_bedtime-stories.md) - Viimane päev tööd
+1. 📅 [PROGRESS.md](./PROGRESS.md) - Kõik progress update'id (viimane: 2025-10-13)
 2. ✅ [TODO.md](./TODO.md) - Järgmised sammud detailselt
 3. 📖 [README.md](./README.md) - Projekti ülevaade ja kasutamisjuhend
 4. 🎯 [COMPACTING_GUIDELINES.md](./COMPACTING_GUIDELINES.md) - Töövoo põhimõtted
 
-**Järgmine ülesanne:** Failide reorganiseerimine + seeriate organiseerimine
+**Järgmine ülesanne:** Allalaadimise jätkamine (käib praegu)
 
 ---
 
@@ -37,13 +37,14 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
    - Võrguühenduse kaitse (5 consecutive failures → stop)
    - Automaatne temp cleanup (pärast iga lugu)
    - Graceful shutdown (Ctrl+C)
+   - **Error tracking (UUS!)** - failed lood CSV-s, session skip
 
-✅ **Allalaadimine POOLELI:**
+✅ **Allalaadimine KÄIB:**
    - Alustatud: 2025-10-13 õhtul
-   - Tempo: ~100 lugu/tunnis (~33s/lugu)
-   - Target: 1981 lugu
-   - ETA: 2025-10-14 õhtul ~15:00-16:00
-   - Quality control töötab: püüab kinni valed failid ja proovib uuesti
+   - Tempo: ~43-103s/lugu (kõikub)
+   - Target: ~770 lugu (veel allalaadimata)
+   - ETA: ~9h
+   - Error tracking töötab: skip'ib failed lugusid, jätkab järgmisega
 
 ---
 
@@ -60,12 +61,13 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
 
 ## Olulised failid
 
-- `progress_updates/2025-10-13_bedtime-stories.md` - Täna tehtud töö (ALUSTA SIIT!)
+- `PROGRESS.md` - Kõik tööd (ALUSTA SIIT!)
 - `README.md` - Projekti ülevaade
 - `TODO.md` - Järgmised ülesanded
 - `COMPACTING_GUIDELINES.md` - Töövoo põhimõtted
 - `USAGE.md` - Kasutamise juhend
 - `download_stories.py` - Peamine skript
+- `DOWNLOAD_BEHAVIOR_USE_CASES.md` - Download käitumise dokumentatsioon (pooleli)
 
 ---
 
@@ -121,5 +123,5 @@ ls -1 Õhtujutt/*.mp3 | wc -l
 ---
 
 **Loodud:** 2025-10-13
-**Viimati uuendatud:** 2025-10-13 23:00
-**Projekti staatus:** Allalaadimine pooleli, reorganiseerimine järgmisena
+**Viimati uuendatud:** 2025-10-13, õhtu (sessioon #2)
+**Projekti staatus:** Allalaadimine käib, error tracking valmis ja testitud

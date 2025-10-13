@@ -222,7 +222,18 @@ ohtujutt-vikerraadio/
 - `url` - Loo URL
 - `duration_seconds` - Kestus sekundites (nt 838)
 - `duration_formatted` - Kestus formaadis MM:SS (nt 13:58)
-- `saved` - Kas lindistatud (0=ei, 1=jah)
+- `saved` - Download status:
+  - `0` - Ei ole alla laaditud
+  - `1` - Edukalt alla laaditud
+  - `failed_download_failed` - Download failinud (yt-dlp error)
+  - `failed_manifest_not_found` - Manifest URL ei leitud
+  - `failed_verification_failed` - Duration verification failinud
+- `duplicate_status` - `original` või `excluded`
+
+**Error Tracking:**
+- Failed lood märgitakse `saved='failed_*'` CSV-s
+- Lubatakse retry järgmisel käivitusel (uus sessioon)
+- Praeguse sessiooni jooksul skip'itakse (ei proovita lõputult)
 
 ### Arhitektuuri Otsused
 
