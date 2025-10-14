@@ -77,6 +77,12 @@ NEXT_SESSION.md sisaldab:
 - Funktsioonid korduvkasutatavad
 - Sama helper saab kasutada programmi eri osades
 
+### Best Practices
+- Järgi üldtunnustatud koodi kirjutamise häid tavasid
+- Kasuta ametlikku dokumentatsiooni kui kahtled
+- Vaata teekide/raamistike ametlikku dokumentatsiooni
+- Järgi keele/platvormi standardeid ja konventsioone
+
 ## 📏 Response Format - ADHD-sõbralik (KOHUSTUSLIK!)
 
 **SEE ON KRIITILISE TÄHTSUSEGA! Kasutajal on ADHD ja need reeglid on MITTE-LÄBIRÄÄGITAVAD!**

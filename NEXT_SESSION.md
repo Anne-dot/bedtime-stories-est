@@ -21,7 +21,7 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
 3. 📖 [README.md](./README.md) - Projekti ülevaade ja kasutamisjuhend
 4. 🎯 [COMPACTING_GUIDELINES.md](./COMPACTING_GUIDELINES.md) - Töövoo põhimõtted
 
-**Järgmine ülesanne:** Allalaadimise jätkamine (käib praegu)
+**Järgmine ülesanne:** Üksikute lugude organiseerimine (pooleli - 15% tehtud)
 
 ---
 
@@ -37,25 +37,51 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
    - Võrguühenduse kaitse (5 consecutive failures → stop)
    - Automaatne temp cleanup (pärast iga lugu)
    - Graceful shutdown (Ctrl+C)
-   - **Error tracking (UUS!)** - failed lood CSV-s, session skip
+   - Error tracking - failed lood CSV-s, session skip
 
-✅ **Allalaadimine KÄIB:**
-   - Alustatud: 2025-10-13 õhtul
-   - Tempo: ~43-103s/lugu (kõikub)
-   - Target: ~770 lugu (veel allalaadimata)
-   - ETA: ~9h
-   - Error tracking töötab: skip'ib failed lugusid, jätkab järgmisega
+✅ **Allalaadimine VALMIS:**
+   - 2330 lugu allalaaditud
+   - Kõik original lood CSV-s
+
+✅ **Kaustade puhastamine VALMIS:**
+   - 81 kausta puhastatud (100%)
+   - 513 lugu kaustades
+   - "Õhtujutt. " prefiks eemaldatud 1283 faililt
+   - Paddington duplikaadid puhastatud
 
 ---
 
-## Järgmised sammud (pärast allalaadimist)
+## ⚠️ ENNE järgmist sessiooni - DUPLICATE CLEANUP
+
+**OLULINE:** Lontkõrv ja Kobakäpp lood on CSV-s KAHES kohas (duplicates)!
+
+**Märgi read 1977-1980 duplicate'iks:**
+```bash
+# CSV read 1977-1980 on duplicates (uuemad URL'id, lühemad versioonid)
+# Read 557-560 on originaalid (vanemad URL'id, pikemad versioonid)
+```
+
+**Muuda CSV-s:**
+- Read 1977-1980: viimane tulp `original` → `duplicate`
+- Põhjus: Need 4 lugu on sama mis read 557-560, aga eri URL'id ja kestused
+
+---
+
+## Järgmised sammud
 
 **Vaata detailsed sammud:** 👉 [TODO.md](./TODO.md)
 
-**Lühiülevaade:**
-1. Failide reorganiseerimine (`scripts/`, `scripts/utils/`, `docs/`)
-2. Seeriate organiseerimine (numbriga lood kaustadesse)
+**Praegu pooleli:**
+1. 🔨 **Üksikute lugude organiseerimine** (1357 lugu, 15% tehtud)
+   - Praegu: "Kadunud hällilaul" juures tähestikus
+   - Veel: 1150 lugu (85%)
+   - Duplikaadid puhastada CSV abil
+   - Kaustadesse sorteerimine
+
+**Hiljem:**
+2. Failide reorganiseerimine (`scripts/`, `scripts/utils/`, `docs/`)
 3. Dokumentatsioon ja Git commit/push
+4. Projekt VALMIS!
 
 ---
 
@@ -107,18 +133,19 @@ ls -1 Õhtujutt/*.mp3 | wc -l
 
 ## Hetkeseisund
 
-**Allalaadimine käib:**
-- Skript töötab terminal aknas
-- Ubuntu screen lock EI mõjuta (terminal process jätkab)
-- Arvuti peab olema sees (mitte suspend/sleep)
-- Tempo: ~100 lugu/tunnis
-- ETA: homme õhtu ~15:00-16:00
+**Praegu:**
+- ✅ Allalaadimine VALMIS (2330 lugu)
+- ✅ Kaustade puhastamine VALMIS (81 kausta, 513 lugu)
+- 🔨 Üksikute lugude organiseerimine POOLELI (1357 lugu lahti, 15% tehtud)
+- 🎯 **Eeldatav lõpptulemus:** ~1500-1600 lugu
+  - CSV algselt: ~3500 lugu
+  - Pärast duplicate'id: ~2500
+  - Pärast lõplikku puhastamist: ~1500-1600
+- 😫 See töö on VÄGA aeganõudev ja kurnav!
 
-**Pärast allalaadimist:**
-1. Failide reorganiseerimine
-2. Seeriate organiseerimine (numbriga lood kaustadesse)
-3. Git commit ja push
-4. Projekt VALMIS!
+**Kui kõik valmis:**
+1. Git commit ja push
+2. Projekt VALMIS! 🎉
 
 ---
 

@@ -130,23 +130,7 @@
   - `docs/COMPACTING_GUIDELINES.md`
   - `docs/MANIFEST_DOWNLOAD_ANALYSIS.md`
 
-### 2. Seeriate organiseerimine (UUS!)
-- [ ] **Loo organize_series.py skript**
-  - Leia CSV-st lood, mis lõpevad `, \d+` (nt "Sirli, Siim ja saladused, 1")
-  - Erasta sarja nimi (osa enne viimast koma)
-  - Loo kaust `Õhtujutt/[sarja_nimi]/`
-  - Liiguta kõik sarja osad õigesse kausta
-  - Üksikud lood jäävad `Õhtujutt/` juurkausta
-  - Prioriteet: KÕRGE
-
-- [ ] **Testi mõnel lugudel**
-  - Kontrolli, et failid liiguvad õigesti
-  - Kontrolli, et üksikud lood jäävad paika
-
-- [ ] **Jookse läbi kõikidel lugudel**
-  - `python3 organize_series.py`
-
-### 3. Dokumentatsioon ja Git
+### 2. Dokumentatsioon ja Git
 - [ ] **Uuenda README.md**
   - Uus failide struktuur
   - Seeriate organiseerimise kirjeldus
