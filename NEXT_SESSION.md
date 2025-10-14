@@ -72,16 +72,28 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
 **Vaata detailsed sammud:** 👉 [TODO.md](./TODO.md)
 
 **Praegu pooleli:**
-1. 🔨 **Üksikute lugude organiseerimine** (1357 lugu, 15% tehtud)
-   - Praegu: "Kadunud hällilaul" juures tähestikus
-   - Veel: 1150 lugu (85%)
-   - Duplikaadid puhastada CSV abil
-   - Kaustadesse sorteerimine
+1. 🔨 **Duplikaatide puhastamine** (1279 lugu lahti)
+   - ✅ ~78 duplikaati kustutatud (1357 → 1279)
+   - ⏳ Veel ~35 paari 90%+ sarnaseid (`high_similarity_remaining.txt`)
+   - 📝 5 eri versiooni märgitud (`different_versions_not_duplicates.txt`)
+   - 📊 Eeldatav lõpptulemus: ~1500-1600 lugu kokku
+
+2. 🔨 **Üksikute lugude kaustadesse sorteerimine** (1279 lugu)
+   - Praegu kõik lahti `Õhtujutt/` kaustas
+   - Tuleb sorteerida sarjadesse ja kategooriatesse
 
 **Hiljem:**
-2. Failide reorganiseerimine (`scripts/`, `scripts/utils/`, `docs/`)
-3. Dokumentatsioon ja Git commit/push
-4. Projekt VALMIS!
+3. 📂 **Projekti struktureerimine** (GitHubi jaoks)
+   - **Vaata plaan:** 👉 [RESTRUCTURING_PLAN.md](./RESTRUCTURING_PLAN.md)
+   - Loo kaustad: `docs/`, `scripts/`, `data/`, `tests/`
+   - Teisalda failid struktureeritud kaustadesse
+   - Lühenda README.md (520 → 150 rida, portfolio showcase)
+   - Uuenda skriptide path'id
+   - Kustuta backup failid
+   - **Ajakulu:** ~30 min
+   - **Tulemus:** Professionaalne GitHub portfolio
+
+4. 📝 Git commit/push ja projekt VALMIS!
 
 ---
 
@@ -92,6 +104,8 @@ Loe NEXT_SESSION.md fail ja jätka projekti ülesannetega.
 - `TODO.md` - Järgmised ülesanded
 - `COMPACTING_GUIDELINES.md` - Töövoo põhimõtted
 - `USAGE.md` - Kasutamise juhend
+- `PORTFOLIO_GUIDE.md` - Kuidas tööintervjuul projekti näidata
+- `RESTRUCTURING_PLAN.md` - Projekti struktureerimise plaan (GitHubi jaoks)
 - `download_stories.py` - Peamine skript
 - `DOWNLOAD_BEHAVIOR_USE_CASES.md` - Download käitumise dokumentatsioon (pooleli)
 
@@ -135,20 +149,24 @@ ls -1 Õhtujutt/*.mp3 | wc -l
 
 **Praegu:**
 - ✅ Allalaadimine VALMIS (2330 lugu)
-- ✅ Kaustade puhastamine VALMIS (81 kausta, 513 lugu)
-- 🔨 Üksikute lugude organiseerimine POOLELI (1357 lugu lahti, 15% tehtud)
+- ✅ Kaustade puhastamine VALMIS (81 kausta, 543 lugu)
+- 🔨 Duplikaatide puhastamine POOLELI (1279 lugu lahti, ~78 kustutatud)
 - 🎯 **Eeldatav lõpptulemus:** ~1500-1600 lugu
-  - CSV algselt: ~3500 lugu
-  - Pärast duplicate'id: ~2500
-  - Pärast lõplikku puhastamist: ~1500-1600
-- 😫 See töö on VÄGA aeganõudev ja kurnav!
+  - Allalaaditud: 2330 lugu
+  - Kaustades: 543 lugu
+  - Lahti: 1279 lugu (pärast 78 duplikaadi kustutamist)
+  - Kokku: 1822 lugu (pärast duplikaatide puhastamist)
+  - Veel puhastada: ~35 paari 90%+ sarnaseid
 
 **Kui kõik valmis:**
-1. Git commit ja push
-2. Projekt VALMIS! 🎉
+1. Duplikaatide puhastamine lõpuni
+2. Kaustadesse sorteerimine
+3. Projekti struktureerimine (GitHubi jaoks)
+4. Git commit ja push
+5. Projekt VALMIS! 🎉
 
 ---
 
 **Loodud:** 2025-10-13
-**Viimati uuendatud:** 2025-10-13, õhtu (sessioon #2)
-**Projekti staatus:** Allalaadimine käib, error tracking valmis ja testitud
+**Viimati uuendatud:** 2025-10-15, õhtu (sessioon #4 - duplikaatide puhastamine)
+**Projekti staatus:** Duplikaatide tuvastamine ja kustutamine käib
