@@ -1,82 +1,14 @@
 ALLESJÄÄNUD ERINEVAD VERSIOONID (90%+ sarnased)
-KOKKU: 35
+KOKKU: 10
 ================================================================================
-
-90% SIMILAR:
-  1: Hiina muinasjutte.mp3
-  2: Hiina muinasjutud.mp3
-
-91% SIMILAR:
-  1: Kalevi kotkalend.mp3
-  2: Kalevipoja kotkalend.mp3
-
-95% SIMILAR:
-  1: Kiko - väike indiaanipoiss..mp3
-  2: Kiko – väike indiaanipoiss.mp3
-
-96% SIMILAR:
-  1: Kolm soovi. Laisk Jack.mp3
-  2: Kolm soovi; Laisk Jack.mp3
-
-90% SIMILAR:
-  1: Kuidas ninasarvik sai endale naha.mp3
-  2: Kuidas ninasarvik sai oma naha.mp3
-
-94% SIMILAR:
-  1: Kuldnokad ja varblane.mp3
-  2: Kuldnokk ja varblane.mp3
-
-98% SIMILAR:
-  1: Laisk kaunitar ja tema tädi.mp3
-  2: Laisk kaunitar ja tema tädid.mp3
-
-98% SIMILAR:
-  1: Linn ilma peatänavata..mp3
-  2: Linn ilma peatänavata.mp3
-
-94% SIMILAR:
-  1: Lohe ja võlur. Jakk..mp3
-  2: Lohe ja võlur; Jakk.mp3
-
-95% SIMILAR:
-  1: Lugu sellest, kuidas M täht ära jooksis.mp3
-  2: Lugu sellest, kuidas täht M ära jooksis.mp3
-
-97% SIMILAR:
-  1: Lugu sellest, kuidas Siil ja Karupoeg Hundi päästsid.mp3
-  2: Lugu sellest, kuidas Siil ja Karupoeg Hundi ära päästsid.mp3
-
-97% SIMILAR:
-  1: Lugu väikesest dinasaurusest.mp3
-  2: Lugu väikesest dinosaurusest.mp3
-
-97% SIMILAR:
-  1: Lustakas lõpmatus. Kaks karu.mp3
-  2: Lustakas lõpmatus; Kaks karu.mp3
 
 95% SIMILAR:
   1: Meie Mardi ja väike Tondu.mp3
   2: Meie Mardi väike Tondu.mp3
 
-93% SIMILAR:
-  1: Mis varblased pühapäeval teevad.mp3
-  2: Mis varblased pühapäeviti teevad.mp3
-
-93% SIMILAR:
-  1: Muti mure. Eesel.mp3
-  2: Muti mure; Eesel..mp3
-
 95% SIMILAR:
   1: Piibelehe neitsi.mp3
   2: Piibelehe-neitsi.mp3
-
-94% SIMILAR:
-  1: Pingviinipoju. Mantel.mp3
-  2: Pingviinipoju; Mantel..mp3
-
-95% SIMILAR:
-  1: Prints Niina ja Tiiger.mp3
-  2: Printsess Niina ja Tiiger.mp3
 
 97% SIMILAR:
   1: Punamütsike..mp3
@@ -86,57 +18,21 @@ KOKKU: 35
   1: Reede. Laupäev..mp3
   2: Reede. Laupäev.mp3
 
-95% SIMILAR:
-  1: Rännuteed. Vesi.mp3
-  2: Rännuteed; Vesi.mp3
-
 97% SIMILAR:
   1: Saabastega kass..mp3
   2: Saabastega kass.mp3
-
-98% SIMILAR:
-  1: Siidivend. Osav sepp.mp3
-  2: Siidivend. Osavsepp.mp3
 
 97% SIMILAR:
   1: Siniste lillede ja punase nupuga vihmav.mp3
   2: Siniste lillede ja punase nupuga vihmavari.mp3
 
 97% SIMILAR:
-  1: Soovipuu. Hobune ja õunapuu.mp3
-  2: Soovipuu; Hobune ja õunapuu.mp3
-
-99% SIMILAR:
-  1: Sügisemuinasjutt kaselehest ja vahtralehest.mp3
-  2: Sügismuinasjutt kaselehest ja vahtralehest.mp3
-
-98% SIMILAR:
-  1: Talupoja õnn. Kust tuli riis..mp3
-  2: Talupoja õnn. Kust tuli riis.mp3
-
-97% SIMILAR:
   1: Tuhkatriinu..mp3
   2: Tuhkatriinu.mp3
-
-96% SIMILAR:
-  1: Tuuleema..mp3
-  2: Tuuleema.mp3
 
 100% SIMILAR:
   1: Vaenelaps ja peretütar Õnneema juures.mp3
   2: Vaenelaps ja peretütar õnneema juures.mp3
-
-97% SIMILAR:
-  1: Vembumees - mänguasjameister.mp3
-  2: Vembumees – mänguasjameister.mp3
-
-96% SIMILAR:
-  1: Vingurist tüdrukust, vallatustest poistest ja.mp3
-  2: Vingurist tüdrukust, vallatutest poistest.mp3
-
-97% SIMILAR:
-  1: Võlumäestik. Sätendav seelik.mp3
-  2: Võlumäestik; Sätendav seelik.mp3
 
 91% SIMILAR:
   1: Õhtujutt lastele. Muinasjutt koerast.mp3
